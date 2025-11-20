@@ -28,10 +28,9 @@ const burgerConstructorSlice = createSlice({
         payload: { ...ingredient, id: nanoid() }
       })
     },
-    removeFromConstructor: (state, { payload }: PayloadAction<number>) => ({
-      ...state,
-      ingredients: state.ingredients.splice(payload, 1)
-    }),
+    removeFromConstructor: (state, { payload }: PayloadAction<number>) => {
+      state.ingredients.splice(payload, 1);
+    },
     reorderConstructor: (
       state,
       { payload }: PayloadAction<{ from: number; to: number }>

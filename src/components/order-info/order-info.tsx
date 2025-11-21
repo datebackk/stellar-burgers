@@ -24,7 +24,11 @@ export const OrderInfo: FC = () => {
 
   useEffect(() => {
     if (!orderFromStore && number) {
-      dispatch(fetchOrderByNumber(+number));
+      dispatch(fetchOrderByNumber(+number))
+        .unwrap()
+        .then((order) => {
+          setOrderData(order);
+        });
     }
   }, [dispatch, number, orderFromStore]);
 
